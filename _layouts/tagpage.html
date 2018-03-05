@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div id="content">
+  <h1><a href="/blog" class="content-link">Blog / </a>Tag: {{ page.tag }}</h1>
+
+  <ul class="post-list">
+	  {% for post in site.tags[page.tag] %}
+	    {% include post_list_item.html %}
+	  {% endfor %}
+	</ul>
+</div>

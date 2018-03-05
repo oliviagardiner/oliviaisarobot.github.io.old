@@ -1,0 +1,88 @@
+#content {
+  margin:                  0 auto;
+  overflow:                hidden;
+  padding:                 $base-spacing;
+  width:                   70%;
+
+  @include handheld {
+    width:                 90%;
+  }
+
+  @media print {
+    width:                 100%;
+  }
+}
+
+#logo {
+  margin-left:             $base-spacing-m;
+}
+
+#logo img {
+  height:                  calc(#{$header-height} - 10px);
+
+  @include handheld {
+    height:                calc(#{$header-height-handheld} - 10px);
+  }
+}
+
+#menu-icon {
+  cursor:                  pointer;
+  font-size:               $font-size-header-m;
+  padding-right:           $base-spacing-xl;
+}
+
+#scroll-top {
+  background:              $secondary-color;
+  top:                     50%;
+  color:                   $font-color-light;
+  cursor:                  pointer;
+  display:                 none;
+  font-size:               $font-size-header-m;
+  height:                  50px;
+  left:                    3%;
+  line-height:             $base-spacing-xl;
+  opacity:                 .3;
+  position:                fixed;
+  text-align:              center;
+  width:                   $base-spacing-xl;
+  -webkit-transform:       rotate(90deg);
+  -moz-transform:          rotate(90deg);
+  -ms-transform:           rotate(90deg);
+  -o-transform:            rotate(90deg);
+  &:hover {
+    opacity:               .7;
+  }
+}
+
+#side-nav {
+  background-color:        $secondary-color;
+  display:                 none;
+  height:                  calc(100vh - #{$header-height});
+  position:                absolute;
+  right:                   0;
+  top:                     $header-height;
+  width:                   $sidenav-width;
+
+  ul {
+    padding:               0;
+
+    li {
+      display:             block;
+      margin-bottom:       $base-spacing;
+      padding:             $base-spacing 0 $base-spacing $base-spacing-l;
+      &:hover {
+        background-color:  rgba(255, 255, 255, .1);
+      }
+      @include handheld {
+        font-size:         $font-size-header-m;
+        padding:           $base-spacing;
+        text-align:        center;
+      }
+    }
+  }
+
+  @include handheld {
+    top:                   $header-height-handheld;
+    width:                 100%;
+  }
+}

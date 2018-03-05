@@ -1,0 +1,29 @@
+<li class="post-list-item">
+  <div class="post-side">
+    <div class="post-date">{{ post.date | date: "%Y %b %d" }}</div>
+
+    {% include social_media_vert.html %}
+
+    <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></span>
+  </div>
+
+  <div class="post-summary">
+    <a href="{{ post.url }}" data-disqus-identifier="{{ post.id }}" title="{{ post.title }}" class="post-title content-link">{{ post.title }}</a>
+
+    <ul class="tags">
+      {% for tag in post.tags %}
+      <a href="/tag/{{ tag }}"><li class="post-tag">{{ tag }}</li></a>
+      {% endfor %}
+    </ul>
+
+    <div class="post-cover">
+      <a href="{{ post.url }}"><img src="{{ post.cover }}" /></a>
+    </div>
+
+    <div class="image-note">Cover image: {{ post.cover-source }}</div>
+
+    <span class="post-description">
+      {{ post.summary }}
+    </span>
+  </div>
+</li>

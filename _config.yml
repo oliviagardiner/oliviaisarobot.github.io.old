@@ -1,0 +1,18 @@
+title: Olivia Gardiner
+email: oliv.gardiner@gmail.com
+twitter_username: oliviaisarobot
+github_username: oliviaisarobot
+markdown: kramdown
+highlighter: rouge
+encoding: utf-8
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+permalink: /blog/:year/:month/:day/:title
+url: https://oliviaisarobot.github.io
+sass:
+  sass_dir: css
+  style: compressed

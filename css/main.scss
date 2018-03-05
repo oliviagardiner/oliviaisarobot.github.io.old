@@ -1,0 +1,91 @@
+---
+# front matter
+---
+
+@import 'reset';
+
+// VARIABLES
+
+// color settings
+
+$background-color:      #e6e6e6;
+
+$primary-color:         #da1c5c;
+$secondary-color:       #414042;
+
+$gradient-color:        linear-gradient(to left, #{$secondary-color} 0%, #{$primary-color} 100%);
+
+$gray-color:            #ababab;
+$gray-color-dark:       #4d4d4d;
+$gray-color-light:      #d6d6d6;
+
+// font settings
+
+$base-font-color:       #333;
+$base-font-family:      'Helvetica', 'Arial', 'Sans-Serif';
+$base-font-size:        16px;
+$base-font-weight:      200;
+
+$base-line-height:      $base-font-size * 1.6;
+$line-height-s:         $base-font-size * 0.9;
+$line-height-m:         $base-font-size * 1.2;
+$line-height-l:         $base-font-size * 1.9;
+$line-height-xl:        $base-font-size * 2.2;
+
+$font-color-light:      #fff;
+
+$font-size-header-xl:   $base-font-size * 2.2;
+$font-size-header-l:    $base-font-size * 1.9;
+$font-size-header-m:    $base-font-size * 1.6;
+$font-size-header-s:    $base-font-size * 1.4;
+$font-size-header-xs:   $base-font-size * 1.2;
+
+$font-size-regular:     $base-font-size * 0.9;
+$font-size-small:       $base-font-size * 0.7;
+
+// size settings
+
+$base-spacing:          10px;
+$base-spacing-s:        $base-spacing * 0.5;
+$base-spacing-m:        $base-spacing * 2;
+$base-spacing-l:        $base-spacing * 3.5;
+$base-spacing-xl:       $base-spacing * 5;
+
+$footer-height:         120px;
+$header-height:         80px;
+$header-height-handheld:120px;
+
+$sidenav-width:         250px;
+
+// other
+
+$bullet-disc:           "• ";
+
+// media
+
+$cover-image-home:      url('/assets/images/cover.jpg');
+
+// mixins
+
+$breakpoint:            450px;
+$breakpoint-high:       1000px;
+
+@mixin handheld {
+  @media screen and (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin handheld-large {
+  @media screen and (max-width: #{$breakpoint-high}) {
+    @content;
+  }
+}
+
+// imports
+
+@import 'base';
+@import 'general';
+@import 'ids';
+@import 'posts';
+@import 'showcase';

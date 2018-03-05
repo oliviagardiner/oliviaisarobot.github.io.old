@@ -1,0 +1,23 @@
+---
+layout: default
+title: Blog
+summary:
+cover:
+---
+
+<div id="content">
+	<h1>{{ page.title }}</h1>
+
+	<ul class="blog-nav">
+		<li><a href="\tag\bookshelf"><span class="blog-nav-link">/bookshelf</span></a></li>
+		<li><a href="\tag\code"><span class="blog-nav-link">/code</span></a></li>
+		<li><a href="\tag\game"><span class="blog-nav-link">/computer game</span></a></li>
+		<li><a href="\tag\design"><span class="blog-nav-link">/design</span></a></li>
+	</ul>
+
+	<ul class="post-list">
+	  {% for post in site.posts %}
+	    {% include post_list_item.html %}
+	  {% endfor %}
+	</ul>
+</div>

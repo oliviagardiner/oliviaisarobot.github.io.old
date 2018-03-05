@@ -1,0 +1,30 @@
+---
+layout: default
+title: Showcase
+summary:
+cover:
+---
+
+<div id="content">
+	<h1>{{ page.title }}</h1>
+
+  <p><b>Welcome to my image gallery!</b> Here you will find a small showcase of my works, including logo designs, vector illustrations, typography, and more. Click on the images to enlarge them!</p>
+
+	<p>You can find more detail about my design projects on <a class="content-link" href="https://www.behance.net/oliviagardiner" target="_blank">Behance.</a></p>
+
+  <div class="lightbox">
+    <div class="lightbox-close" title="Close lightbox.">&#215;</div>
+  </div>
+
+  <div class="showcase-container">
+    {% for image in site.static_files reversed %}
+      {% if image.path contains 'images/gallery' %}
+          <div class="showcase-tile" title="Click to enlarge.">
+            <div class="showcase-image">
+              <img class="showcase-content" src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+            </div>
+          </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,88 @@
+.blog-nav {
+  margin:                  0 0 $base-spacing-xl $base-spacing-m;
+  &:hover {
+    opacity:               1;
+    text-decoration:       none;
+  }
+}
+
+.blog-nav-link {
+  color:                   #4d4d4d;
+  font-size:               1.5em;
+  font-weight:             bold;
+  opacity:                 .6;
+  &:hover {
+    opacity:               1;
+  }
+}
+
+.content-link {
+  color:                   $primary-color;
+  font-weight:             bold;
+  &:hover {
+    text-decoration:       underline;
+  }
+}
+
+.container-flex {
+  display:                 flex;
+  justify-content:         space-between;
+  margin:                  0 0 $base-spacing-xl 0;
+  padding:                 0;
+  @include handheld {
+    flex-direction:        column;
+    justify-content:       center;
+  }
+}
+
+.container-flex-half {
+  display:                 inline;
+  padding:                 $base-spacing-s;
+  width:                   47%;
+  @include handheld {
+    display:               block;
+    width:                 100%;
+  }
+}
+
+.copyright {
+  border-top:              1px solid white;
+  margin-top:              $base-spacing;
+  opacity:                 .5;
+  padding:                 $base-spacing;
+}
+
+.float-right {
+  float:                   right;
+}
+
+.nav-link {
+  color:                   $font-color-light;
+}
+
+.no-print {
+  @media print {
+    display:               none;
+  }
+}
+
+.paragraph-block {
+  margin-bottom:           $base-spacing-xl;
+}
+
+.paragraph-indent {
+  font-size:               $base-font-size;
+  line-height:             $line-height-xl;
+  margin-bottom:           $base-spacing-l;
+  margin-left:             $base-spacing-l;
+
+  h3 {
+    font-size:             $font-size-header-s;
+    margin:                $base-spacing-l 0 $base-spacing 0;
+    padding:               0;
+  }
+
+  @media print {
+    margin:                0 0 $base-spacing $base-spacing;
+  }
+}
