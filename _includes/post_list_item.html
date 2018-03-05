@@ -4,11 +4,11 @@
 
     {% include social_media_vert.html %}
 
-    <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></span>
+    <!--span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></span-->
   </div>
 
   <div class="post-summary">
-    <a href="{{ post.url }}" data-disqus-identifier="{{ post.id }}" title="{{ post.title }}" class="post-title content-link">{{ post.title }}</a>
+    <a href="{{ post.url }}" title="{{ post.title }}" class="post-title content-link">{{ post.title }}</a>
 
     <ul class="tags">
       {% for tag in post.tags %}
