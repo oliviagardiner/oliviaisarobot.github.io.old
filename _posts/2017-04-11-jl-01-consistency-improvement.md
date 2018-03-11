@@ -4,13 +4,11 @@ title: 'Junior life #1: Code consistency vs. improvement'
 date: 2017-04-11
 tags: code development junior legacy-code PHP consistency refactoring clean-code
 summary: "In these articles, I would like to share my experiences as a beginner web developer, talk about expectations vs. reality, mistakes I've made and solutions I came up with."
-cover: \assets\blog\2017-04-11\brendan-church-182747-unsplash.jpg
-cover-source: Brendan Church / unsplash.com
+cover: \assets\blog\2017-04-11\cover.jpg
+cover-source: Illustration by Olivia Gardiner
 ---
 
-![junior life cover](\assets\blog\2017-04-11\brendan-church-182747-unsplash.jpg){: .post-cover-full }
-
-<small><em>Image source: Brendan Church / unsplash.com</em></small>
+![junior life cover](\assets\blog\2017-04-11\cover.jpg){: .post-cover-full }
 
 **In these articles, I would like to share my experiences as a beginner developer, talk about expectations vs. reality, mistakes I've made and solutions I came up with. The aim of this is not to put down my employer, or my colleagues, as many businesses might suffer from the same or similar problems, I invite you to think about these together.**
 
