@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Code diary: Just download already!!!'
+title: 'Code diary #3: Just download already!!!'
 date: 2018-03-11
 tags: problem-solving code development PHP cURL XML timeout
 summary: 'Take a simple looking problem. Discover limitations in your system that rule out obvious solutions. Realize that it is not so simple after all. Spend a reasonable amount of time trying to come up with something. Bash your head in the table/wall, whichever is closer.'

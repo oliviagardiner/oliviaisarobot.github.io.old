@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'Junior life #1: Code consistency vs. improvement'
+title: 'Code diary #1: Code consistency vs. improvement'
 date: 2017-04-11
-tags: code development junior legacy-code PHP consistency refactoring clean-code
+tags: code development legacy-code PHP consistency refactoring clean-code
 summary: "In these articles, I would like to share my experiences as a beginner web developer, talk about expectations vs. reality, mistakes I've made and solutions I came up with."
 cover: \assets\blog\2017-04-11\cover.jpg
 cover-source: Illustration by Olivia Gardiner
