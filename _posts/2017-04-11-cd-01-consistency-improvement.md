@@ -8,9 +8,9 @@ cover: \assets\blog\2017-04-11\cover.jpg
 cover-source: Illustration by Olivia Gardiner
 ---
 
-![junior life cover](\assets\blog\2017-04-11\cover.jpg){: .post-cover-full }
+![code diary cover](\assets\blog\2017-04-11\cover.jpg){: .post-cover-full }
 
-**In these articles, I would like to share my experiences as a beginner developer, talk about expectations vs. reality, mistakes I've made and solutions I came up with. The aim of this is not to put down my employer, or my colleagues, as many businesses might suffer from the same or similar problems, I invite you to think about these together.**
+**In these articles, I would like to share my experiences as a developer, talk about expectations vs. reality, mistakes I've made and solutions I came up with. The aim of this is not to put down my employer, or my colleagues, as many businesses might suffer from the same or similar problems, I invite you to think about these together.**
 
 I'm quite sure the mention of legacy code triggers serious PTSD in many of us. It's that sticky and slimy thing in the corner, that nobody wants to touch. But it's a part of our codebase, therefore there is a legitimate need to maintain it, and not let it rot any further.
 
@@ -67,4 +67,4 @@ These might seem like trivial additions, but apparently, some developers are in 
 
 I have learnt that when trying to make changes, I should always consider the general state of the code - and when possible, discuss it with other developers. I do want to deliver the best quality code possible, but there are also legitimate limitations, such as the need that the code is easily readable and understandable for your whole team.
 
-**Both consistency and improvement are important**. Try to make the best compromise, when you have to.
+**Both consistency and improvement are important**. Try to make the best compromise, when you have to. Thank you for reading!
