@@ -2,7 +2,7 @@
   margin:                  0 auto;
   overflow:                hidden;
   padding:                 $base-spacing;
-  width:                   70%;
+  width:                   60%;
 
   @include handheld {
     width:                 90%;
@@ -15,32 +15,29 @@
 
 #logo {
   margin-left:             $base-spacing-m;
-}
-
-#logo img {
-  height:                  calc(#{$header-height} - 10px);
-
-  @include handheld {
-    height:                calc(#{$header-height-handheld} - 10px);
-  }
+  width:                   100%;
 }
 
 #menu-icon {
   cursor:                  pointer;
   font-size:               $font-size-header-m;
   padding-right:           $base-spacing-xl;
+
+  @include handheld {
+    font-size:             $font-size-header-xl;
+  }
 }
 
 #scroll-top {
-  background:              $secondary-color;
+  background:              $gray-color-dark;
   top:                     50%;
   color:                   $font-color-light;
   cursor:                  pointer;
   display:                 none;
   font-size:               $font-size-header-m;
-  height:                  50px;
+  height:                  $base-spacing * 5;
   left:                    3%;
-  line-height:             $base-spacing-xl;
+  line-height:             $base-spacing * 5;
   opacity:                 .3;
   position:                fixed;
   text-align:              center;
@@ -52,15 +49,27 @@
   &:hover {
     opacity:               .7;
   }
+
+  @include handheld {
+    bottom:                5%;
+    height:                $base-spacing * 8;
+    left:                  auto;
+    line-height:           $base-spacing * 8;
+    opacity:               1;
+    right:                 5%;
+    text-align:            center;
+    top:                   auto;
+    width:                 $base-spacing * 8;
+  }
 }
 
 #side-nav {
-  background-color:        $secondary-color;
+  background-color:        $primary-color;
   display:                 none;
-  height:                  calc(100vh - #{$header-height});
+  height:                  calc(100vh - #{$header-height-handheld});
   position:                absolute;
   right:                   0;
-  top:                     $header-height;
+  top:                     $header-height-handheld;
   width:                   $sidenav-width;
 
   ul {
@@ -70,13 +79,10 @@
       display:             block;
       margin-bottom:       $base-spacing;
       padding:             $base-spacing 0 $base-spacing $base-spacing-l;
+      transition:          .3s ease;
       &:hover {
-        background-color:  rgba(255, 255, 255, .1);
-      }
-      @include handheld {
-        font-size:         $font-size-header-m;
-        padding:           $base-spacing;
-        text-align:        center;
+        background-color:  rgba(255, 255, 255, .3);
+        transition:        .3s ease;
       }
     }
   }

@@ -1,16 +1,30 @@
 a {
   cursor:                  pointer;
-  text-decoration:         none;
+  color:                   $emphasis-color;
+  text-decoration:         underline;
+  transition:              .3s ease;
+  &:hover {
+    color:                 $emphasis-color-hover;
+    transition:              .3s ease;
+  }
+  &:visited {
+    color:                 $gray-color;
+  }
 }
 
 article {
   font-size:               $base-font-size;
   margin-bottom:           $base-spacing-xl;
+
+  p {
+    line-height:          $line-height-xl;
+    margin-bottom:        $base-spacing-l;
+  }
 }
 
 footer {
   align-items:             center;
-  background:              $secondary-color;
+  background:              $gray-color-dark;
   box-sizing:              border-box;
   display:                 flex;
   flex-direction:          column;
@@ -56,7 +70,10 @@ footer {
 }
 
 h1 {
+  color:                   $primary-color;
+  font-family:             $alt-font-family;
   font-size:               $font-size-header-xl;
+  font-weight:             700;
   margin:                  $base-spacing-l 0 $base-spacing-m $base-spacing-s;
 
   @media print {
@@ -67,6 +84,7 @@ h1 {
 }
 
 h2 {
+  font-family:             $alt-font-family;
   font-size:               $font-size-header-l;
   margin:                  $base-spacing-l 0 $base-spacing $base-spacing-m;
 
@@ -76,6 +94,7 @@ h2 {
 }
 
 h3 {
+  font-family:             $alt-font-family;
   font-size:               $font-size-header-m;
   margin:                  $base-spacing-l 0 $base-spacing $base-spacing-l;
 
@@ -86,7 +105,7 @@ h3 {
 
 header {
   align-items:             center;
-  background:              $gradient-color;
+  background:              $background-color;
   box-sizing:              border-box;
   display:                 flex;
   height:                  $header-height;
@@ -107,7 +126,7 @@ header {
 
 html, body {
   background:              $background-color;
-  color:                   $font-color-light;
+  color:                   $base-font-color;
   font-family:             $base-font-family;
   font-size:               $base-font-size;
   height:                  100vh;

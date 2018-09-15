@@ -16,10 +16,22 @@
   color:                   $font-color-light;
   cursor:                  pointer;
   font-size:               $font-size-header-xl;
+  height:                  $font-size-header-xl;
   left:                    $base-spacing-m;
   position:                absolute;
+  text-align:              center;
   top:                     $base-spacing;
+  width:                   $font-size-header-xl;
   z-index:                 300;
+
+  @include handheld {
+    bottom:                5%;
+    font-size:             $base-spacing * 10;
+    height:                $base-spacing * 10;
+    left:                  calc(50% - (#{$base-spacing} * 5));
+    top:                   auto;
+    width:                 $base-spacing * 10;
+  }
 }
 
 .showcase-container {

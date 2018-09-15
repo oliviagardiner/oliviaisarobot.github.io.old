@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Code diary #3: Just download already!!!'
+title: 'Just download already!!!'
 date: 2018-03-11
 tags: problem-solving code development PHP cURL XML timeout
 summary: 'Take a simple looking problem. Discover limitations in your system that rule out obvious solutions. Realize that it is not so simple after all. Spend a reasonable amount of time trying to come up with something. Bash your head in the table/wall, whichever is closer.'
@@ -22,25 +22,7 @@ Actually, I wrote several alternatives to the download process, because in some 
 
 It was a live XML feed, with a large total size compared to the other feeds (over 30Mb), coming from a password protected URL. It shouldn't have been a problem, I've had larger feeds than that, I've had other sources that were password protected, **cURL can deal with all of that just fine. Or so I thought.** So I used my regular function to download it, which looked something like this:
 
-``` php
-<?php
-function directDownload($source_url, $filename, $user, $pass) {
-  global $working_dir;
-
-  chdir(CONSTANT_FILE_LOCATION);
-
-  list($output, $error) = curlTransfer($source_url, $filename, $user, $pass);
-
-  if( $output ) {
-    logIt('Successful data transfer', $filename);
-  } else {
-    logIt('Transfer error: ' . $error, $filename);
-  }
-
-  chdir($working_dir);
-}
-?>
-```
+<script src="https://gist.github.com/oliviaisarobot/eb1a86b3cfe05eda6b372d638f53ac16.js"></script>
 
 It looks really simple, right? Let's try to download our latest XML feed. Seemingly, everything was okay, but **when it came to verifying the download, it turned out the transferred data only contained an error message**: *Access denied, please try again in 5 minutes.* Okay, what the hell? I tried to run it again in 5, 20, 30 minutes, but I got the same error. I tried to double check my function. I didn't see where the problem was, because when I decided not to send any password or username, I got a response like: *Incorrect username or password*. So I was definitely able to connect to their server, and I was getting a response, but I wasn't getting back any XML-like data.
 
@@ -50,42 +32,7 @@ I haven't looked at it for another week, but sometimes thought about the unresol
 
 **It timed out.** But this was an easy one! The default value of *CURLOPT_TIMEOUT* is zero, which means it never times out during transfer. It was not an ideal setting, I didn't want it to try to execute indefinitely, so I initially set it to 50 seconds, which was enough time to transfer the data on previous occasions, even when it had to transfer over 30 Megabytes. The culprit was my *$curl_options* array, which contained the my curl settings withing the *curlTransfer* function:
 
-``` php
-<?php
-function curlTransfer($url, $filename, $user, $pass) {
-  if( file_exists($filename) ) {
-    unlink($filename);
-  }
-
-  $file = fopen($filename, 'w+');
-
-  $curl_options = array(
-    CURLOPT_URL => $url,         // the url to connect to
-    CURLOPT_RETURNTRANSFER => 1, // return the content of the target url
-    CURLOPT_TIMEOUT => 50,       // stop executing the transfer after 50 seconds
-    CURLOPT_FILE => $file        // write the transfer to a predefined file
-  );
-
-  if( $user != '' && $pass != '' ) {
-    $login_data = array('username' => $user, 'password' => $pass);
-    $curl_options[CURLOPT_POST] = true;                // perform a HTTP POST action
-    $curl_options[CURLOPT_POSTFIELDS] = $login_data;   // pass POST data in an array
-    $curl_options[CURLOPT_HTTPAUTH] = CURLAUTH_BASIC;  // set up authentication
-  }
-
-  $ch = curl_init(CONSTANT_FILE_LOCATION);
-  curl_setopt_array($ch, $curl_options);
-
-  $output = curl_exec($ch);
-  $error = curl_error($ch);
-
-  curl_close($ch);
-  fclose($file);
-
-  return array($output, $error);
-}
-?>
-```
+<script src="https://gist.github.com/oliviaisarobot/4b741c6bc0e19e093e14ab185acfeb25.js"></script>
 
 This limited the execution time to 50 seconds, which was obviously not enough now, so I increased it to a generous 400 seconds instead.
 
@@ -95,14 +42,7 @@ Well, the good news was, the file downloaded just fine. The bad news was, the PH
 
 My first idea was to **forget cURL downloads and write a python script to handle the downloading**, just in case this is related to poor garbage collection in PHP. It's no secret that I love python for its sheer versatility, and it seemed so obvious to use it for downloading something. But there was a problem: you can't just run a python script anywhere you like on an Apache server. But let's say I could get around that problem. But even if I could run my python script, **I would also have to reference the server's python installation** to make it work, which looks something like this:
 
-``` python
-#!/somedirectory/Python27/python
-
-try:
-  # download something
-except Exception as e:
-  # raise exception
-```
+<script src="https://gist.github.com/oliviaisarobot/fd9620fdcd85d6a0df7c94ded15af580.js"></script>
 
 The first two characters - a.k.a. the shebang - indicates that the following file is a script, and Unix tries to execute it using the interpreter specified after the shebang, in this case, python. It is required to define an absolute path to the python installation. But I had no idea what that was or how to find that out, as my fellow coders did not code in python before, and our server hosting company, who could tell me more about python versions and installation directories, was not of the helpful kind. In fact, I had no idea which version of python was installed on the server (but my guess would be 2.5).
 
@@ -110,25 +50,11 @@ I was stuck. Again.
 
 Until I started looking into the possible reasons of why the script has stopped, once again. What measures did I take to prevent it from happening?
 
-``` php
-<?php
- ini_set('max_execution_time', 400);
-
- // includes and function calls begin here
-?>
-```
+<script src="https://gist.github.com/oliviaisarobot/6c22557f6ad3cdb6cec38766540564b2.js"></script>
 
 But there is another built-in function for timeout handling in php, and that is *set_time_limit()*, which appeared to be but a wrapper for the *ini_set()* function. This is how I used it:
 
-``` php
-<?php
-  // includes and function calls
-
-  set_time_limit(400);
-
-  // call the download function after this
-?>
-```
+<script src="https://gist.github.com/oliviaisarobot/25a4fbf64cc61b27ba01328ee756033c.js"></script>
 
 Humor me. The script executed, even past the download. We are done, right? It works the way we wanted it to work. But to me, not understanding how or *why* something works can be just as frustrating as not understanding how or why something doesn't. So I decided to try to go deeper. Virtually, [*ini_set('max_execution_time')*](http://php.net/manual/en/function.ini-set.php) and [*set_time_limit()*](http://php.net/manual/en/function.set-time-limit.php) should be the same. They reset the timeout counter and stop the script after the time limit is exceeded, or the script has finished running. Then the timeout returns to its initial value defined in the php.ini - or so the book says.
 
@@ -140,31 +66,7 @@ But there was something I have overlooked, which is also visible in the code sni
 
 **When I replaced the *ini_set('max_execution_time')* on the first line with *set_time_limit()*, the script still executed to the very end.** *I was baffled,* and I started looking into the differences between the two functions even more furiously. These are the functions in the stable 5.6 php source code:
 
-``` php
-<?php
-/* proto bool set_time_limit(int seconds)
-   Sets the maximum time a script can run */
-PHP_FUNCTION(set_time_limit)
-{
-	long new_timeout;
-	char *new_timeout_str;
-	int new_timeout_strlen;
-
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "l", &new_timeout) == FAILURE) {
-		return;
-	}
-
-	new_timeout_strlen = zend_spprintf(&new_timeout_str, 0, "%ld", new_timeout);
-
-	if (zend_alter_ini_entry_ex("max_execution_time", sizeof("max_execution_time"), new_timeout_str, new_timeout_strlen, PHP_INI_USER, PHP_INI_STAGE_RUNTIME, 0 TSRMLS_CC) == SUCCESS) {
-		RETVAL_TRUE;
-	} else {
-		RETVAL_FALSE;
-	}
-	efree(new_timeout_str);
-}
-?>
-```
+<script src="https://gist.github.com/oliviaisarobot/a3d91fae9b4a997a0ed8966cef2a76be.js"></script>
 
 This is the built-in function for *set_time_limit()*, which basically redefines the value of max_execution_time, which was initially set in the php.ini file. I won't paste the function for *ini_set()*, because it just takes one more parameter compared to this, the variable name of the value which you want to replace. It didn't seem like the solution was on an internal function level.
 

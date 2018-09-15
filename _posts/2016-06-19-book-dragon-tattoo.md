@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bookshelf - David Lagercrantz: The girl in the spider's web"
+title: "David Lagercrantz: The girl in the spider's web"
 date: 2016-05-30
 tags: book review goodreads novel bookshelf
 summary: "It may not be a big surprise that I am huge fan of the Millennium Trilogy. When I heard that someone else picked up Larsson's legacy to continue the story, I was intrigued and terrified, so much that I just had to read it."

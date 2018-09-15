@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 'Game review: Before the Storm'
+title: 'Life is Strange: Before the Storm'
 date: 2018-01-05
 tags: game review AAA
 summary: 'The game we wanted... but not the game we deserved. Square Enix shows its expertise on how to destroy a cultic IP just to make some money before the actual sequel rolls out.'
-cover: https://steamuserimages-a.akamaihd.net/ugc/929302165271697004/907AA53587FC8B69755A1AF9DC1CC8ADBF92D0B3/
+cover: /assets/blog/2018-01-05/cover.jpg
 cover-source: Steam Community / Sori
 ---
 

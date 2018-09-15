@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Bookshelf - Lionel Shriver: We need to talk about Kevin'
+title: 'Lionel Shriver: We need to talk about Kevin'
 date: 2016-05-30
 tags: book review goodreads novel bookshelf
 summary: 'This book really put me on the emotional rollercoaster, with a lineup of very unlikeable characters and a horrifying story that slowly builds into a brutally honest confession. Terrible mistakes have been made, and the price is equally terrible.'

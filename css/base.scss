@@ -8,12 +8,11 @@
 
 // color settings
 
-$background-color:      #e6e6e6;
+$background-color:      #fff;
 
-$primary-color:         #da1c5c;
-$secondary-color:       #414042;
-
-$gradient-color:        linear-gradient(to left, #{$secondary-color} 0%, #{$primary-color} 100%);
+$primary-color:         #000;
+$emphasis-color:        #0071bc;
+$emphasis-color-hover:  #29abe2;
 
 $gray-color:            #ababab;
 $gray-color-dark:       #4d4d4d;
@@ -21,10 +20,11 @@ $gray-color-light:      #d6d6d6;
 
 // font settings
 
-$base-font-color:       #333;
-$base-font-family:      'Helvetica', 'Arial', 'Sans-Serif';
-$base-font-size:        16px;
-$base-font-weight:      200;
+$base-font-color:       #000;
+$base-font-family:      'Playfair+Display', serif;
+$alt-font-family:       'Roboto', sans-serif;
+$base-font-size:        20px;
+$base-font-weight:      400;
 
 $base-line-height:      $base-font-size * 1.6;
 $line-height-s:         $base-font-size * 0.9;
@@ -52,7 +52,7 @@ $base-spacing-l:        $base-spacing * 3.5;
 $base-spacing-xl:       $base-spacing * 5;
 
 $footer-height:         120px;
-$header-height:         80px;
+$header-height:         150px;
 $header-height-handheld:120px;
 
 $sidenav-width:         250px;
@@ -61,23 +61,20 @@ $sidenav-width:         250px;
 
 $bullet-disc:           "• ";
 
-// media
-
-$cover-image-home:      url('/assets/images/cover.jpg');
-
 // mixins
 
 $breakpoint:            450px;
 $breakpoint-high:       1000px;
 
 @mixin handheld {
-  @media screen and (max-width: #{$breakpoint}) {
-    @content;
+  @media only screen
+    and (max-device-width: #{$breakpoint}) {
+      @content;
   }
 }
 
 @mixin handheld-large {
-  @media screen and (max-width: #{$breakpoint-high}) {
+  @media only screen and (max-device-width: #{$breakpoint-high}) {
     @content;
   }
 }

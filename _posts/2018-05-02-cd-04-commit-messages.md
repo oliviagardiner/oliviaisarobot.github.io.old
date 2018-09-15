@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Code diary #4 - How I learned the importance of commit messages"
+title: "How I learned the importance of commit messages"
 date: 2018-05-02
 tags: code learning git commit repository changelog version-control
 summary: "An argument for writing better commit messages, in addition to showing some real-world examples. Have you ever refactored commit messages? Are you wondering what's the point? This article might just be the right read for you."
@@ -40,24 +40,7 @@ There might come a point, when you need to put together some documentation on ho
 
 The internet suggests that we should keep our first line under 50-72 characters. [Git itself offers us an example](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project) of what a commit message should look like:
 
-```
-Short (50 chars or less) summary of changes
-
-More detailed explanatory text, if necessary.  Wrap it to
-about 72 characters or so.  In some contexts, the first
-line is treated as the subject of an email and the rest of
-the text as the body.  The blank line separating the
-summary from the body is critical (unless you omit the body
-entirely); tools like rebase can get confused if you run
-the two together.
-
-Further paragraphs come after blank lines.
-
-  - Bullet points are okay, too
-  - Typically a hyphen or asterisk is used for the bullet,
-    preceded by a single space, with blank lines in
-    between, but conventions vary here
-```
+<script type="text/javascript" src="https://gist.github.com/oliviaisarobot/64ffca3ae817f4694b6c6cd19ecaf372.js"></script>
 
 The first line can be a summary of the changes, written in a commanding style. Using a period is not necessary. It's important to leave the second line blank for rebasing and other purposes. Use line breaks to avoid having to scroll horizontally.
 
@@ -92,24 +75,7 @@ Last but not lest, I'm going to show you some examples, and at the same time, de
 
 Yes, that is it. I'm guilty of those one-liner commit messages, and also of including too many changes in one commit. Remember the three questions I cited above? This commit message doesn't answer any of that. So I went back to the changelog, and concluded that this commit, in fact, only included one important change, so this would have been a much better commit message:
 
-```
-commit#1
-Add modal popup for product page instead of rerouting
-
-The previous product page was not user friendly enough,
-a popup modal allows a quicker and easier return to the
-product list, and makes it easier to switch between
-product pages.
-
-This was done using the bootstrap modal, adding a new
-field formatter to the grid to trigger the modal itself.
-
-The field formatter might need refactoring because it is
-using a workaround to trigger the modal, as regular event
-emitter could not be used, having to communicate between
-element and grandparent element (and vue 2 event emitter
-works only between parent and child).
-```
+<script src="https://gist.github.com/oliviaisarobot/a2ac58cfe6c8334d9e882f2392656c8b.js"></script>
 
 ## #2
 
