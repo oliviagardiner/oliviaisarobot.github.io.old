@@ -1,0 +1,35 @@
+@mixin size-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No size reference for `#{$breakpoint}`"
+  }
+};
+
+@mixin size-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No size reference for `#{$breakpoint}`"
+  }
+};
+
+@mixin size-between($min, $max) {
+  @if map-has-key($breakpoints, $min) and map-has-key($breakpoints, $max) {
+    @media (max-width: map-get($breakpoints, $max)) and (min-width: map-get($breakpoints, $min)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "No size reference for either `#{$min}` or `#{$max}`"
+  }
+};

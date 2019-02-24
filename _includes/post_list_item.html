@@ -7,22 +7,22 @@
     <!--span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></span-->
   </div>
 
-  <div class="post-summary">
-    <a href="{{ post.url }}" title="{{ post.title }}" class="post-title content-link">{{ post.title }}</a>
+  <div class="post-item-body">
+    <a href="{{ post.url }}" title="{{ post.title }}" class="post-item-title content-link">{{ post.title }}</a>
 
-    <ul class="tags">
+    <ul class="tags post-list-tags">
       {% for tag in post.tags %}
-      <a href="/tag/{{ tag }}"><li class="post-tag">{{ tag }}</li></a>
+      <a href="/tag/{{ tag }}"><li class="tag">{{ tag }}</li></a>
       {% endfor %}
     </ul>
 
-    <div class="post-cover">
+    <div class="post-item-cover">
       <a href="{{ post.url }}"><img src="{{ post.cover }}" /></a>
     </div>
 
-    <div class="image-note">Cover image: {{ post.cover-source }}</div>
+    <div class="post-item-image-note">Cover image: {{ post.cover-source }}</div>
 
-    <span class="post-description">
+    <span class="post-item-description">
       {{ post.summary }}
     </span>
   </div>

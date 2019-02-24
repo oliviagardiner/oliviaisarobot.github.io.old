@@ -1,0 +1,88 @@
+html, body {
+  background:                $background-color;
+  color:                     $font-color-dark;
+  font-family:               $base-font-family;
+  font-size:                 $base-font-size;
+  height:                    100vh;
+
+  a {
+    cursor:                  pointer;
+    color:                   $color-link;
+    text-decoration:         underline;
+    @include transition();
+
+    &:active {
+      color:                 $color-active;
+    }
+
+    &:hover {
+      color:                 $color-hover;
+    }
+
+    &:visited {
+      color:                 $color-visited;
+    }
+  }
+
+  h1 {
+    color:                   $color-highlight;
+    font-family:             $base-font-family;
+    font-size:               $font-size-header-xl;
+    font-weight:             700;
+    margin:                  $base-spacing-l 0 $base-spacing-m $base-spacing-s;
+  
+    @media print {
+      &:before {
+        content:             "Olivia Gardiner - ";
+      }
+    }
+  }
+
+  h2 {
+    font-family:             $base-font-family;
+    font-size:               $font-size-header-l;
+    margin:                  $base-spacing-l 0 $base-spacing $base-spacing-m;
+  
+    @media print {
+      margin:                $base-spacing-m 0 $base-spacing $base-spacing-s;
+    }
+  }
+  
+  h3 {
+    font-family:             $base-font-family;
+    font-size:               $font-size-header-m;
+    margin:                  $base-spacing-l 0 $base-spacing $base-spacing-l;
+  
+    @media print {
+      margin:                $base-spacing-m 0 $base-spacing $base-spacing-m;
+    }
+  }
+
+  hr {
+    background-color:        $color-highlight;
+    border:                  none;
+    height:                  3px;
+    margin:                  $base-spacing-l 0 $base-spacing-xl 0;
+  }
+
+  p {
+    color:                   $font-color-dark;
+    font-size:               $base-font-size;
+    line-height:             $base-line-height;
+  }
+
+  .container {
+    margin:                  0 auto;
+    overflow:                hidden;
+    padding:                 $base-spacing;
+    width:                   60%;
+  
+    @include size-below(sm) {
+      width:                 90%;
+    }
+  
+    @media print {
+      width:                 100%;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+header {
+  display:                      flex;
+  height:                       $header-height;
+  justify-content:              center;
+  margin:                       $header-margin;
+
+  .site-logo {
+    display:                    inline-block;
+
+    img {
+      object-fit:               cover;
+      width:                    110px;
+    }
+  }
+
+  @include size-below(sm) {
+    height:                     $header-height - $header-margin;
+  }
+
+  @media print {
+    display:                    none;
+  }
+}

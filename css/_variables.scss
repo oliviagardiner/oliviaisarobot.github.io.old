@@ -1,0 +1,65 @@
+// COLORS
+
+$color-dark:                    #2B2F38;
+$color-light:                   #F5F9FF;
+$color-light-gray:                lighten($color-dark, 40%);
+$color-highlight:               #d71549;
+$color-link:                    #125371;
+
+$color-active:                    $color-highlight;
+$color-hover:                     $color-highlight;
+$color-visited:                   lighten($color-highlight, 40%);
+
+$background-color:                $color-light;
+$footer-color:                    $color-dark;
+
+// FONT
+               
+$base-font-family:                sans-serif, 'Helvetica', 'Arial', 'Roboto';
+$base-font-size:                  20px;
+
+$font-color-dark:                 $color-dark;
+$font-color-light:                $color-light;
+
+$base-line-height:                $base-font-size * 1.6;
+$line-height-s:                   $base-font-size * 0.9;
+$line-height-m:                   $base-font-size * 1.2;
+$line-height-l:                   $base-font-size * 1.9;
+$line-height-xl:                  $base-font-size * 2.2;
+
+$font-size-header-xl:             $base-font-size * 2.2;
+$font-size-header-l:              $base-font-size * 1.9;
+$font-size-header-m:              $base-font-size * 1.6;
+$font-size-header-s:              $base-font-size * 1.4;
+$font-size-header-xs:             $base-font-size * 1.2;
+
+$font-size-regular:               $base-font-size * 0.9;
+$font-size-small:                 $base-font-size * 0.7;
+
+// SPACING
+
+$base-spacing:                    10px;
+
+$base-spacing-s:                  $base-spacing * 0.5;
+$base-spacing-m:                  $base-spacing * 2;
+$base-spacing-l:                  $base-spacing * 3.5;
+$base-spacing-xl:                 $base-spacing * 5;
+
+$header-height:                   90px;
+$header-margin:                   $base-spacing * 2;
+
+// OTHER
+
+$bullet:                          "• ";
+
+@mixin transition () {
+  transition:                     .3s ease;
+}
+
+// BREAKPOINTS
+
+$breakpoints: (
+  "sm": 767px,
+  "md": 992px,
+  "lg": 1199px
+) !default;

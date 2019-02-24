@@ -1,0 +1,21 @@
+.social-media-buttons-horizontal, .social-media-buttons-vertical {
+  display:                flex;
+  margin:                 $base-spacing 0 0 0;
+  padding:                0;
+}
+
+.social-media-buttons-horizontal li, .social-media-buttons-vertical li {
+  padding:                $base-spacing-s;
+}
+
+.social-media-buttons-horizontal {
+  flex-direction:         row;
+}
+
+.social-media-buttons-vertical {
+  flex-direction:         column;
+
+  @include size-below(sm) {
+    flex-direction:       row;
+  }
+}

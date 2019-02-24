@@ -1,0 +1,98 @@
+.post-list {
+  margin:                       0 auto;
+  padding:                      0;
+  width:                        100%;
+
+  .post-list-item {
+    display:                    flex;
+    flex-direction:             row;
+    margin-bottom:              $base-spacing-xl;
+    padding-bottom:             $base-spacing-m;
+  
+    @include size-below(sm) {
+      align-items: stretch;
+      flex-direction:           column-reverse;
+    }
+
+    .post-side {
+      display:                  inline-block;
+      height:                   100%;
+      margin:                   0;
+      max-width:                120px;
+      padding:                  0;
+    
+      @include size-below(sm) {
+        align-self:             center;
+        display:                flex;
+        justify-content:        space-between;
+        max-width:              100%;
+        width:                  90%;
+      }
+
+      .post-date {
+        display:                inline-block;
+        font-family:            $base-font-family;
+        font-size:              $font-size-small;
+        padding:                $base-spacing 0 0 0;
+        width:                  120px;
+      }
+    }
+
+    .post-item-body {
+      align-self:               center;
+      display:                  inline-block;
+      margin:                   0;
+      max-width:                95%;
+      padding:                  0;
+
+      .post-item-title {
+        color:                  $color-dark;
+        display:                inline-block;
+        font-family:            $base-font-family;
+        font-size:              $font-size-header-l;
+        font-weight:            700;
+        text-decoration:        none;
+
+        &:hover {
+          color:                $color-hover;
+        }
+
+        &:visited {
+          color:                $color-visited!important;
+        }
+      
+        @include size-below(sm) {
+          font-size: $base-font-size * 3;
+        }
+      }
+
+      .post-item-cover {
+        align-items:             center;
+        display:                 flex;
+        height:                  auto;
+        justify-content:         center;
+        margin:                  $base-spacing 0 $base-spacing-m 0;
+        max-height:              350px;
+        max-width:               100%;
+        overflow:                hidden;
+      
+        img {
+          height:                auto;
+          max-width:             100%;
+        }
+      }
+
+      .post-item-image-note {
+        font-style:              italic;
+        font-size:               $font-size-small;
+        margin:                  -10px 0 $base-spacing 0;
+      }
+
+      .post-item-description {
+        display:                 block;
+        line-height:             $line-height-l;
+        margin:                  $base-spacing-m 0 0 0;
+      }
+    }
+  }
+}

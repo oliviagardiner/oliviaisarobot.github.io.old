@@ -1,0 +1,30 @@
+ul.tags {
+  &.post-list-tags {
+    margin:                 $base-spacing 0 $base-spacing 0;
+    padding:                0;
+  }
+
+  &.post-tags {
+    margin-bottom:          $base-spacing-l;
+  }
+
+  li.tag {
+    background-color:       $color-light-gray;
+    color:                  $font-color-light;
+    display:                inline-block;
+    font-family:            $base-font-family;
+    font-size:              $font-size-small;
+    margin:                 0 $base-spacing-s $base-spacing-s 0;
+    opacity:                .3;
+    padding:                $base-spacing;
+    @include transition();
+
+    &:hover {
+      opacity:              .7;
+    }
+
+    &:before {
+      content:              "#";
+    }
+  }
+}

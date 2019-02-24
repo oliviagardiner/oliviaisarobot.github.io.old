@@ -4,43 +4,31 @@ comments: true
 ---
 
 <div id="content">
-  <h1>{{ page.title }}</h1>
+  <article>
+      <section class="post-head">
+        <h1>{{ page.title }}</h1>
+  
+        <time>{{ page.date | date_to_string }}</time>
+      
+        <ul class="tags post-tags">
+          {% for tag in page.tags %}
+          <a href="/tag/{{ tag }}">
+            <li class="tag">{{ tag }}</li>
+          </a>
+          {% endfor %}
+        </ul>
+      </section>
+    
+      <section class="post-body">
+        {{ content }}
+      </section>
 
-  <p class="meta">{{ page.date | date_to_string }} <span class="disqus-comment-count" data-disqus-identifier="{{ post.id }}"></span></p>
-
-  <ul class="tags">
-    {% for tag in page.tags %}
-    <a href="/tag/{{ tag }}"><li class="post-tag">{{ tag }}</li></a>
-    {% endfor %}
-  </ul>
-
-  <div class="post">
-    {{ content }}
-  </div>
-
-  {% include social_media_horiz.html %}
-
-  <div>
-    <a class="content-link float-right" href="/blog">Back to the blog</a>
-  </div>
-
-  <hr />
-
-  <!--div id="disqus_thread"></div>
-
-  <script>
-    var disqus_config = function () {
-      this.page.url = '{{ site.url }}{{ page.url }}';
-      this.page.identifier = '{{ page.id }}';
-    };
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://olivia-gardiner.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
-
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript-->
+      <section class="post-foot">
+        {% include social_media_horiz.html %}
+      
+        <div>
+          <a class="content-link float-right" href="/blog">Back to the blog</a>
+        </div>
+      </section>
+  </article>
 </div>
